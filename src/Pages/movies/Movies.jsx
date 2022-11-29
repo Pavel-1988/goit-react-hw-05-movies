@@ -22,27 +22,21 @@ export const Movies = () => {
     const value = e.currentTarget.value;
      setSearchParams(value !== '' ? { filter: value } : {});
     console.log(value)
-    
+
 
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     // if (filter.trim() === '') {
+      
     //   return toast.info('Please select an movie');
     // }
 
-
-
-    return toast.info('Please select an movie');
     console.log('нажал на кнопку')
+
   };
 
-  //   useEffect(() => {
-  //   if (filter.trim() === '') {
-  //     setMovies([]);
-  //   }
-  // }, [filter]);
 
   useEffect(() => {
      if (!filter) {
