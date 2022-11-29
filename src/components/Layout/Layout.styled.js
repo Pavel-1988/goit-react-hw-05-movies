@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 
 export const Container = styled.div`
-  max-width: 970px;
+  max-width: 1170px;
   margin: 0 auto;
   padding: 0 15px;
 `;

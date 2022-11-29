@@ -41,7 +41,7 @@ export const MovieLink = styled(Link)`
     color: orangered;
   }
   & > img {
-    max-width: auto;
+    max-width: 100%;
     max-height: auto;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 2px orangered;

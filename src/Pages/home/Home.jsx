@@ -7,7 +7,7 @@ import { Container, MovieList, MovieItem, MovieLink  } from './Home.styled';
 export function Home() {
   
   
-  const [trending, setTrending] = useState('');
+  const [trending, setTrending] = useState([]);
 
   useEffect(() => {
 
@@ -36,12 +36,12 @@ export function Home() {
     <Container>
       <h2>Trending movies</h2>
       
-        <ul>
+        <MovieList>
         {trending.map(({ poster_path, name, title, id })  =>  {
         
         return (
               <MovieItem key={id}>
-                <MovieLink  to={`/movies/${id}`}>
+                <MovieLink  to={`/movies/${id}`} >
                   <img
                     src={
                       poster_path
@@ -55,7 +55,7 @@ export function Home() {
               </MovieItem>
             )}
           )}
-        </ul>
+        </MovieList>
 
 
       <Outlet/>
