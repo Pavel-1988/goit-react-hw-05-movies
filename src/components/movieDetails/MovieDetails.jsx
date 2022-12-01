@@ -1,5 +1,5 @@
 import { Outlet, useLocation, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense  } from 'react'
 
 import { Container, StyledLink  } from '../layout/Layout.styled'
 import{MovieBox, MovieImg, MovieInfo, AdditionalDiv } from './MovieDetails.styled'
@@ -44,8 +44,7 @@ export default function MovieDetails(){
           {movie.map(({ release_date, poster_path, title, name, overview, vote_average, genres, id }) => {
            
             const releaseYear = new Date(release_date).getFullYear();
-            const genre = genres
-                .map(({ name }) => {
+            const genre = genres.map(({ name }) => {
                   return name;
                 })
                 .join(' ').toLowerCase();
@@ -68,12 +67,7 @@ export default function MovieDetails(){
                     <h3>Geners</h3>
                     <p>{genre}</p>
                   </MovieInfo>
-              
-               
-
                 </MovieBox>
-               
-
                 <AdditionalDiv>
                   <h3>Additional information</h3>
                    <ul>
@@ -89,16 +83,15 @@ export default function MovieDetails(){
                       </li>
                     </ul>
                   </AdditionalDiv>
-
               </div>
-              
-
-            )
-          }
+              )
+            }
           )}
         </Container>
       )}
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
   </>
   )
 }

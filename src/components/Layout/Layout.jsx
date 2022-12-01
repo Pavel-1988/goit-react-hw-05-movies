@@ -16,8 +16,8 @@ export const Layout = () => {
         </nav>
       </Header>
       <Suspense>
-            <Outlet />
-    </Suspense>
+          <Outlet />
+      </Suspense>
     </Container>
    
   )

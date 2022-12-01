@@ -23,11 +23,10 @@ export default function Cast() {
           return response.json();
         }
         return Promise.reject(new Error('Nothing found'));
-      })
-       
+    })
     .then(credit =>{
          setCast(credit.cast)
-      })
+    })
 
   }, [movieId])
 
@@ -47,10 +46,8 @@ export default function Cast() {
               <h4>{name}</h4>
               <p>{character}</p>
             </CastInfo>
-            
-
           </CastItem>
-          
+
         )
       })}
     </CastList>

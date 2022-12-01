@@ -43,7 +43,6 @@ export default function Reviews () {
                   <h4>Author: <ReviewsSpan>{author}</ReviewsSpan></h4>
                   <p>{content}</p>
                   <h5>Last updated: <ReviewsSpan>{updateTime}</ReviewsSpan></h5>
-                  
                 </ReviewsItem>
               )
             })}

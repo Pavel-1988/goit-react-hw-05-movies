@@ -4,11 +4,13 @@ export const MovieBox = styled.div`
   display: flex;
   align-items: center;
   margin-top: 20px;
+  
 `
 
 export const MovieImg = styled.img`
-  max-height: 100%;
-  max-width: 100%;
+  /* max-height: 100%;
+  max-width: 100%; */
+  height: 500px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 2px orangered;
 
