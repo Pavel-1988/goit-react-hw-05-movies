@@ -4,9 +4,9 @@ import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Container,MovieList, MovieItem, MovieLink } from '../home/Home.styled';
-import { Input, SearchBtn } from './Movies.styled';
+import { Input } from './Movies.styled';
 
-import defaultImg from '../../default.png'
+// import defaultImg from '../../default.png'
 
 
 export default function Movies()  {
@@ -106,7 +106,7 @@ export default function Movies()  {
           }
         )}
       </MovieList>
-       <Outlet/>
+       <Suspense><Outlet/></Suspense>
     </Container>
 
   )
