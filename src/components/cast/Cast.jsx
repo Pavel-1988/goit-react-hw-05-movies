@@ -4,7 +4,7 @@ import { CastList, CastItem, CastImg, CastInfo } from './Cast.styled'
 
 import defaultImg from '../../default.png'
 
-export const Cast = () => {
+export default function Cast() {
 
   const {movieId } = useParams();
   const [cast, setCast] = useState([]);

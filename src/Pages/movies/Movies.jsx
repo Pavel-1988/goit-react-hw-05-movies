@@ -9,7 +9,7 @@ import { Input, SearchBtn } from './Movies.styled';
 import defaultImg from '../../default.png'
 
 
-export const Movies = () => {
+export default function Movies()  {
 
   const location = useLocation();
 

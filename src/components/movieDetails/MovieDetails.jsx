@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Container, StyledLink  } from '../layout/Layout.styled'
 import{MovieBox, MovieImg, MovieInfo, AdditionalDiv } from './MovieDetails.styled'
 
-export const MovieDetails = () => {
+export default function MovieDetails(){
 
   const {movieId} = useParams();
   const [movie, setMovie] = useState([]);

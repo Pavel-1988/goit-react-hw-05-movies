@@ -4,7 +4,7 @@ import { ReviewsList, ReviewsItem, ReviewsSpan } from './Reviews.styled'
 
 import { Container } from '../layout/Layout.styled'
 
-export const Reviews = () => {
+export default function Reviews () {
 
   const {movieId } = useParams();
   const [reviews, setReviews] = useState([]);
