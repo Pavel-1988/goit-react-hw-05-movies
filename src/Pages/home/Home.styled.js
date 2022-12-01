@@ -42,7 +42,7 @@ export const MovieLink = styled(Link)`
   }
   & > img {
     max-width: 100%;
-    /* max-height: auto; */
+    
    height:400px;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 2px orangered;
