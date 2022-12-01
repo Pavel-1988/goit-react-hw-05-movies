@@ -35,10 +35,9 @@ export function Home() {
   return (
     <Container>
       <h2>Trending movies</h2>
-      
+
         <MovieList>
         {trending.map(({ poster_path, name, title, id })  =>  {
-        
         return (
               <MovieItem key={id}>
                 <MovieLink  to={`/movies/${id}`} >
