@@ -30,7 +30,6 @@ export function Home() {
       });
     
     },[])
-  
 
   return (
     <Container>
