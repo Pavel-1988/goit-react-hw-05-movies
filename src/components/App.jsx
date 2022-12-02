@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
 import { Home } from '../Pages/home/Home'
-import { Layout } from './layout/Layout'
+import { Layout } from './Layout/Layout'
 
 // import { Movies } from '../Pages/movies/Movies'
 // import {MovieDetails} from './movieDetails/MovieDetails'

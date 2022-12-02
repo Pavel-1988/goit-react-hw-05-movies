@@ -2,7 +2,7 @@ import {  useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { ReviewsList, ReviewsItem, ReviewsSpan } from './Reviews.styled'
 
-import { Container } from '../layout/Layout.styled'
+import { Container } from '../Layout/Layout.styled'
 
 export default function Reviews () {
 

@@ -1,7 +1,7 @@
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect, Suspense  } from 'react'
 
-import { Container, StyledLink  } from '../layout/Layout.styled'
+import { Container, StyledLink  } from '../Layout/Layout.styled'
 import{MovieBox, MovieImg, MovieInfo, AdditionalDiv } from './MovieDetails.styled'
 
 export default function MovieDetails(){
