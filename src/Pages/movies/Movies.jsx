@@ -1,7 +1,7 @@
 import { useState, useEffect, Suspense } from 'react';
 // import { useForm } from 'react-hook-form';
 import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Container,MovieList, MovieItem, MovieLink } from '../home/Home.styled';
 import { Input } from './Movies.styled';
@@ -15,37 +15,46 @@ export default function Movies()  {
 
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const [value, setValue] = useState(searchParams.get('query')?? '')
   
-  const filter = searchParams.get('filter') ?? '';
+  // const filter = searchParams.get('filter') ?? '';
 
-  const selectedMovie = e => {
-    const value = e.currentTarget.value;
-     setSearchParams(value !== '' ? { filter: value } : {});
-    console.log(value)
+    const query = searchParams.get('query') ?? '';
 
 
-  };
+ 
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   if (filter.trim() === '') {
+  //     return toast.info('Please select an movie');
+  //   }
 
-  const handleSubmit = e => {
+  //   console.log('нажал на кнопку')
+
+  // };
+
+  const onFormSubmit = e => {
     e.preventDefault();
-    // if (filter.trim() === '') {
-      
-    //   return toast.info('Please select an movie');
-    // }
+      if (value === '') {
+        return alert(
+          'Sorry. but write someting. Ok! idiot.'
+        )
+      }
 
-    console.log('нажал на кнопку')
+      setSearchParams({ query:value})
 
   };
 
 
   useEffect(() => {
-     if (!filter) {
+     if (!query) {
       return;
     }
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=bfc78256055c27ed6be30c1c43cfe9c3&language=en-US&query=${filter}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/movie?api_key=bfc78256055c27ed6be30c1c43cfe9c3&language=en-US&query=${query}&page=1&include_adult=false`
     )
-      .then(res => {
+    .then(res => {
         if (res.ok) {
           return res.json()
         }
@@ -53,31 +62,57 @@ export default function Movies()  {
       })
       .then(movie => {
         if (movie.results === 0) {
-          return toast.error(
+          return alert(
             'Something went wrong. Try changing your search query'
           );
         }
         return setMovies([...movie.results]);
       })
     .catch(error => {
-        return toast.error(error.message);
+        return alert(error.message);
       });
-    
-},[filter])
+  }, [query])
+  
+  
+// useEffect(() => {
+//      if (!query) {
+//       return;
+//     }
+//     fetch(
+//       `https://api.themoviedb.org/3/search/movie?api_key=bfc78256055c27ed6be30c1c43cfe9c3&language=en-US&query=${query}&page=1&include_adult=false`
+//       )
+//       .then(info => {
+//         if (info.results === 0) {
+//           return alert (`Sorry dont find ${query}`)
+//         }
+//         setMovies(info.results)
+//       })
 
+//   .catch(error => console.log (error));
+   
+// },[query])
+
+  // const selectedMovie = e => {
+  //   const value = e.currentTarget.value;
+  //    setSearchParams(value !== '' ? { filter: value } : {});
+  //   console.log(value)
+  // };
+
+  const handleInputChange = e => {
+    setValue (e.target.value)
+  }
 
   return (
     <Container>
-      <form  onSubmit={handleSubmit} >
+      <form  onSubmit={onFormSubmit} >
        <Input
-          value={filter}
-          onChange={selectedMovie}
+          value={value}
+          onChange={handleInputChange}
           type="text"
           autoComplete="off"
           autoFocus
           placeholder="Search movies"
         />
-        {/* {errors.filter && <span>Field is required</span>} */}
 
         <button >Search</button>
       </form>
