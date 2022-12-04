@@ -1,7 +1,7 @@
 import { useState, useEffect, Suspense } from 'react';
 // import { useForm } from 'react-hook-form';
 import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Container,MovieList, MovieItem, MovieLink } from '../home/Home.styled';
 import { Input } from './Movies.styled';
@@ -15,12 +15,8 @@ export default function Movies()  {
 
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [value, setValue] = useState(searchParams.get('query')?? '')
-  
-  // const filter = searchParams.get('filter') ?? '';
-
-    const query = searchParams.get('query') ?? '';
+  const query = searchParams.get('query') ?? '';
 
 
  
@@ -38,10 +34,12 @@ export default function Movies()  {
     e.preventDefault();
       if (value === '') {
         return alert(
-          'Sorry. but write someting. Ok! idiot.'
+          'Enter your serch query'
         )
-      }
-
+    }
+    //  if (value === '') {
+    //   return toast.info('Please select an movie');
+    // }
       setSearchParams({ query:value})
 
   };
@@ -74,29 +72,6 @@ export default function Movies()  {
   }, [query])
   
   
-// useEffect(() => {
-//      if (!query) {
-//       return;
-//     }
-//     fetch(
-//       `https://api.themoviedb.org/3/search/movie?api_key=bfc78256055c27ed6be30c1c43cfe9c3&language=en-US&query=${query}&page=1&include_adult=false`
-//       )
-//       .then(info => {
-//         if (info.results === 0) {
-//           return alert (`Sorry dont find ${query}`)
-//         }
-//         setMovies(info.results)
-//       })
-
-//   .catch(error => console.log (error));
-   
-// },[query])
-
-  // const selectedMovie = e => {
-  //   const value = e.currentTarget.value;
-  //    setSearchParams(value !== '' ? { filter: value } : {});
-  //   console.log(value)
-  // };
 
   const handleInputChange = e => {
     setValue (e.target.value)
