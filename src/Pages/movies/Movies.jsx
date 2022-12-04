@@ -1,12 +1,9 @@
 import { useState, useEffect, Suspense } from 'react';
-// import { useForm } from 'react-hook-form';
 import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Container,MovieList, MovieItem, MovieLink } from '../home/Home.styled';
 import { Input } from './Movies.styled';
-
-// import defaultImg from '../../default.png'
 
 
 export default function Movies()  {
