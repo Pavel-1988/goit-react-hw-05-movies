@@ -4,8 +4,7 @@ import { toast } from 'react-toastify';
 import { Container, MovieList, MovieItem, MovieLink  } from './Home.styled';
 
 
-export function Home() {
-  
+export default function Home() {
   
   const [trending, setTrending] = useState([]);
 

@@ -6,7 +6,7 @@ import { Container,MovieList, MovieItem, MovieLink } from '../home/Home.styled';
 import { Input } from './Movies.styled';
 
 
-export default function Movies()  {
+export default function Movies() {
 
   const location = useLocation();
 
@@ -16,16 +16,6 @@ export default function Movies()  {
   const query = searchParams.get('query') ?? '';
 
 
- 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   if (filter.trim() === '') {
-  //     return toast.info('Please select an movie');
-  //   }
-
-  //   console.log('нажал на кнопку')
-
-  // };
 
   const onFormSubmit = e => {
     e.preventDefault();
@@ -34,9 +24,6 @@ export default function Movies()  {
           'Enter your serch query'
         )
     }
-    //  if (value === '') {
-    //   return toast.info('Please select an movie');
-    // }
       setSearchParams({ query:value})
 
   };

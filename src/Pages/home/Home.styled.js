@@ -42,8 +42,8 @@ export const MovieLink = styled(Link)`
   }
   & > img {
     max-width: 100%;
-    
-   height:400px;
+    /* height:400px; */
+    max-height:100%;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 2px orangered;
   }

@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
-import { Home } from '../Pages/home/Home'
+// import { Home } from '../Pages/home/Home'
 import { Layout } from './Layout/Layout'
 
 // import { Movies } from '../Pages/movies/Movies'
@@ -9,6 +9,7 @@ import { Layout } from './Layout/Layout'
 // import { Cast } from './cast/Cast'
 // import { Reviews } from './reviews/Reviews'
 
+const Home = lazy(() => import('../Pages/home/Home'));
 const Movies = lazy(() => import('../Pages/movies/Movies'));
 const MovieDetails = lazy(() => import('./movieDetails/MovieDetails'));
 const Cast = lazy(() => import('./cast/Cast'));
